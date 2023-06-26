@@ -1,0 +1,11 @@
+
+<form method="POST" action="{% url 'university' %}" >
+{% csrf_token %}
+<select name="programs">
+    <option selected>Select program</option>
+    {% for program in programs %}
+        <option name="program" value="{{program.id}}">{{program.program_name}} </option>
+    {% endfor %}
+</select>
+<button type="submit">Submit</button>
+</form>

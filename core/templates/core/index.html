@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% comment %} 
+{% block content %}
+
+<select
+    name="degree" 
+    hx-get="{% url 'programs' %}"
+    hx-trigger="change"
+    hx-target="#programs">
+    <option selected>Select degree</option>
+    {% for degree in degrees %}
+        <option value="{{degree.id}}">{{degree.degree_name}} </option>
+    {% endfor %}
+</select>
+<p></p>
+
+<div id="programs">
+    {% include 'core/partials/programs.html' %}
+</div>
+
+{% endblock content %} {% endcomment %}
+
+{% block content %}
+
+  <select name="degree" 
+    hx-get="{% url 'programs' %}"
+    hx-target="#programs"
+    hx-trigger="change">
+    <option selected>Select degree</option>
+    {% for degree in degrees %}
+        <option value="{{degree.id}}">{{degree.degree_name}} </option>
+    {% endfor %}
+  </select>
+  
+
+
+<div id="programs">
+    {% include 'core/partials/programs.html' %}
+</div>
+
+{% endblock content %}
